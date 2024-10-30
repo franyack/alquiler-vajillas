@@ -494,7 +494,7 @@
 
     let contact = document.querySelector('input[name="orderType"]:checked').value === 'envio' ? document.getElementById('address').value : document.getElementById('name').value;
     let message = `Pedido:\n${orderDetails.join('\n')}\nTotal: $${total + deliveryFee}\nEnvío: $${deliveryFee}\nContacto: ${contact}\nMétodo de Pago: ${paymentMethod.value}`;
-    let whatsappUrl = `https://api.whatsapp.com/send?phone=5493404592031&text=${encodeURIComponent(message)}`;
+    let whatsappUrl = `https://api.whatsapp.com/send?phone=5493496546951&text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
 </script>
