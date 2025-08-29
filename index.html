@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bernardino Pizzas</title>
+    <title>Alquiler de Vajillas Esperanza</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
-    <img src="https://i.imgur.com/dwZwxd3.png" alt="Logo Bernardino Pizzas" style="max-width: 100%; height: auto;">
+    <h1>🍽️ Alquiler de Vajillas Esperanza</h1>
+    <p>Todo lo que necesitas para tu evento especial</p>
 </header>
 
 <div class="category-nav">
-    <button onclick="loadCategory('clasicas')" class="active">Clásicas</button>
-    <!--<button onclick="loadCategory('tentadoras')">Tentadoras</button>
-    <button onclick="loadCategory('irresistibles')">Irresistibles</button>-->
+    <button onclick="loadCategory('mobiliario')" class="active">🪑 Mobiliario</button>
+    <button onclick="loadCategory('vajilla')">🍽️ Vajilla</button>
+    <button onclick="loadCategory('copas')">🍷 Copas</button>
+    <button onclick="loadCategory('accesorios')">🍯 Accesorios</button>
 </div>
 
 <div id="category-content">
@@ -23,7 +25,7 @@
 </div>
 
 <div class="order-options">
-    <h2>Opciones de Pedido</h2>
+    <h2>Opciones de Alquiler</h2>
     <label>
         <input type="radio" name="orderType" value="retiro" onclick="toggleFields()"> Retiro
     </label>
@@ -43,8 +45,8 @@
         <input type="radio" id="efectivo" name="paymentMethod" value="efectivo">
         <label for="efectivo">Efectivo</label><br>
     </div>
-    <div class="error-message" id="error-message">¡Por favor, selecciona al menos un pedido!</div>
-    <button class="whatsapp-button" onclick="placeOrder()">Hacer Pedido por WhatsApp</button>
+    <div class="error-message" id="error-message">¡Por favor, selecciona al menos un producto!</div>
+    <button class="whatsapp-button" onclick="placeOrder()">Solicitar Cotización por WhatsApp</button>
 </div>
 
 <script src="script.js"></script>
