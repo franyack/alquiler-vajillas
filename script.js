@@ -1,20 +1,60 @@
-// Funciones para controlar las cantidades
+// Global variable to maintain the state of quantities
+let productQuantities = {};
+
+// Initialize quantities in 0 for all products
+function initializeQuantities() {
+    const allProducts = ['silla', 'mesa_redonda_1', 'mesa_redonda_2', 'mesa_imperial', 'tablon_caballetes', 'tacho',
+        'mantel_redondo_blanco', 'mantel_redondo_negro', 'mantel_rect_15x4', 'mantel_rect_22x4_blanco', 'mantel_rect_22x4_negro',
+        'mantel_imperial_blanco', 'mantel_imperial_negro', 'funda_silla_blanca', 'funda_silla_negra', 'servilleta',
+        'plato_sitio', 'plato_verbano_25', 'plato_verbano_21', 'plato_verbano_19', 'plato_verbano_16', 'cubierto_x3', 'cubierto_x2', 'cuchara_grande',
+        'jarra_vidrio', 'copa_vino_agua', 'copa_champagne', 'vaso_copa_sin_pie', 'copa_sidra', 'copa_helado', 'vaso_liso', 'copa_gin',
+        'fuente_servir', 'panera', 'pocillo_cafe', 'hielera_pinza', 'ensaladera_porcelana', 'ensaladera_acero', 'frapera',
+        'fuentina_grande', 'fuentina_mediana', 'fuentina_chica', 'espada', 'bandeja_mozo', 'cazuela'];
+    
+    allProducts.forEach(product => {
+        if (!productQuantities[product]) {
+            productQuantities[product] = 0;
+        }
+    });
+}
+
+// Functions to control quantities
 function changeQuantity(product, change) {
-    let input = document.getElementById(product);
-    let newValue = parseInt(input.value) + change;
+    // Update global state
+    if (!productQuantities[product]) {
+        productQuantities[product] = 0;
+    }
+    
+    let newValue = productQuantities[product] + change;
     if (newValue >= 0) {
-        input.value = newValue;
+        productQuantities[product] = newValue;
+        
+        // Update input if it exists in the current DOM
+        let input = document.getElementById(product);
+        if (input) {
+            input.value = newValue;
+        }
     }
 }
 
-// Función para alternar campos según el tipo de pedido
+// Function to restore values in the inputs after loading a category
+function restoreQuantities() {
+    Object.keys(productQuantities).forEach(productId => {
+        let input = document.getElementById(productId);
+        if (input && productQuantities[productId] > 0) {
+            input.value = productQuantities[productId];
+        }
+    });
+}
+
+// Function to toggle fields according to the type of order
 function toggleFields() {
     let orderType = document.querySelector('input[name="orderType"]:checked').value;
     document.getElementById('address-field').style.display = orderType === 'envio' ? 'block' : 'none';
     document.getElementById('name-field').style.display = orderType === 'retiro' ? 'block' : 'none';
 }
 
-// Función para realizar el pedido
+// Function to place the order
 function placeOrder() {
     let errorMessage = document.getElementById('error-message');
     errorMessage.style.display = 'none';
@@ -23,7 +63,7 @@ function placeOrder() {
     let total = 0;
     let deliveryFee = document.querySelector('input[name="orderType"]:checked').value === 'envio' ? 1500 : 0;
 
-    // Productos del catálogo CSV y sus precios
+    // Products from the CSV catalog and their prices
     const products = {
         // MOBILIARIO
         'silla': { name: 'Silla', price: 350 },
@@ -84,10 +124,7 @@ function placeOrder() {
     let totalItems = 0;
 
     Object.keys(products).forEach(productId => {
-        let input = document.getElementById(productId);
-        if (!input) return; // Skip if product input doesn't exist on current view
-
-        let quantity = parseInt(input.value);
+        let quantity = productQuantities[productId] || 0;
         if (quantity > 0) {
             totalItems += quantity;
             let productInfo = products[productId];
@@ -97,14 +134,13 @@ function placeOrder() {
         }
     });
 
-    // Verificación ya no necesaria ya que solo manejamos números enteros
-
+    
     if (orderDetails.length === 0) {
         errorMessage.style.display = 'block';
         return;
     }
 
-    // Obtener el método de pago seleccionado
+    // Get the selected payment method
     let paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
     if (!paymentMethod) {
         alert("Debes seleccionar un método de pago.");
@@ -115,18 +151,21 @@ function placeOrder() {
     let orderType = document.querySelector('input[name="orderType"]:checked').value === 'envio' ? 'Envío a domicilio' : 'Retiro en local';
     
     let message = `🍽️ SOLICITUD DE ALQUILER DE VAJILLAS\n\n📦 PRODUCTOS:\n${orderDetails.join('\n')}\n\n💰 RESUMEN:\nSubtotal: $${total}\n${orderType}: $${deliveryFee}\nTOTAL: $${total + deliveryFee}\n\n📋 DETALLES:\nTipo: ${orderType}\nContacto: ${contact}\nMétodo de Pago: ${paymentMethod.value}\n\n¡Gracias por elegirnos! 😊`;
-    let whatsappUrl = `https://api.whatsapp.com/send?phone=5493496546951&text=${encodeURIComponent(message)}`;
+    let whatsappUrl = `https://api.whatsapp.com/send?phone=5493496578677&text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
 
-// Función para cargar categorías dinámicamente
+// Function to load categories dynamically
 async function loadCategory(categoryName) {
     try {
         const response = await fetch(`categories/${categoryName}.html`);
         const content = await response.text();
         document.getElementById('category-content').innerHTML = content;
         
-        // Actualizar botones activos
+        // Restore quantities after loading the new content
+        restoreQuantities();
+        
+        // Update active buttons
         document.querySelectorAll('.category-nav button').forEach(btn => {
             btn.classList.remove('active');
         });
@@ -137,7 +176,8 @@ async function loadCategory(categoryName) {
     }
 }
 
-// Cargar la primera categoría al iniciar
+// Load the first category when starting
 document.addEventListener('DOMContentLoaded', function() {
+    initializeQuantities();
     loadCategory('mobiliario');
 });
