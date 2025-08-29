@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.pizza-category {
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #ff8c00;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.pizza-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.pizza-item:last-child {
+    border-bottom: none;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #ff8c00;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.quantity-controls input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.order-options {
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #ff8c00;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.order-options label {
+    margin-right: 10px;
+}
+
+.whatsapp-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #25D366;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+
+/* Estilos para la navegación entre categorías */
+.category-nav {
+    text-align: center;
+    margin: 20px;
+}
+
+.category-nav button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.category-nav button:hover {
+    background-color: #e67e00;
+}
+
+.category-nav button.active {
+    background-color: #cc6600;
+}
+
+#category-content {
+    min-height: 400px;
+}
