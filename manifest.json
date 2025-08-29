@@ -4,12 +4,31 @@
   "description": "Tableware and furniture rental management system for events",
   "start_url": "/",
   "display": "standalone",
+  "scope": "/",
   "background_color": "#f5f7fa",
   "theme_color": "#667eea",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "categories": ["business", "productivity", "utilities"],
   "lang": "es",
   "icons": [
+    {
+      "src": "https://via.placeholder.com/72x72/667eea/ffffff?text=🍽️",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://via.placeholder.com/96x96/667eea/ffffff?text=🍽️",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://via.placeholder.com/128x128/667eea/ffffff?text=🍽️",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "https://via.placeholder.com/192x192/667eea/ffffff?text=🍽️",
       "sizes": "192x192",
@@ -17,10 +36,38 @@
       "purpose": "any maskable"
     },
     {
+      "src": "https://via.placeholder.com/384x384/667eea/ffffff?text=🍽️",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "https://via.placeholder.com/512x512/667eea/ffffff?text=🍽️",
       "sizes": "512x512", 
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver Catálogo",
+      "short_name": "Catálogo",
+      "description": "Ver productos disponibles",
+      "url": "/",
+      "icons": [
+        {
+          "src": "https://via.placeholder.com/96x96/667eea/ffffff?text=📋",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://via.placeholder.com/390x844/667eea/ffffff?text=Vista+Mobile",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
     }
   ]
 }

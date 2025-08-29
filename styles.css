@@ -215,3 +215,402 @@ img {
 #category-content {
     min-height: 400px;
 }
+
+/* ========== RESPONSIVE DESIGN - MOBILE FIRST ========== */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 768px) {
+    header {
+        padding: 30px 15px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+        letter-spacing: 1px;
+    }
+    
+    .category-nav {
+        margin: 15px 10px;
+    }
+    
+    .category-nav button {
+        margin: 5px 8px;
+        padding: 12px 20px;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+    
+    .pizza-category {
+        margin: 15px 10px;
+        padding: 20px 15px;
+    }
+    
+    .order-options {
+        margin: 20px 10px;
+        padding: 20px 15px;
+    }
+}
+
+/* Smartphones universales - iOS y Android (360px-430px) */
+@media (max-width: 430px) {
+    header {
+        padding: 25px 10px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+        letter-spacing: 0.5px;
+    }
+    
+    header p {
+        font-size: 1em;
+        margin: 8px 0 0 0;
+    }
+    
+    /* PESTAÑAS DE NAVEGACIÓN - Arreglado para móviles */
+    .category-nav {
+        margin: 10px 5px;
+        padding: 0 5px;
+    }
+    
+    .category-nav button {
+        margin: 3px 2px;
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 18px;
+        min-width: 70px;
+        white-space: nowrap;
+        display: inline-block;
+    }
+    
+    /* Layout responsive para pestañas */
+    .category-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    /* CONTROLES DE CANTIDAD - Arreglado para móviles */
+    .pizza-item {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 10px;
+        gap: 10px;
+    }
+    
+    .pizza-item .item-name {
+        font-size: 14px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    
+    .pizza-item .item-price {
+        font-size: 1.2em;
+        text-align: center;
+        margin: 0;
+        color: #667eea;
+        font-weight: bold;
+    }
+    
+    .quantity-controls {
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .quantity-controls button {
+        margin: 0 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+        font-weight: bold;
+        min-width: 35px;
+        border-radius: 20px;
+    }
+    
+    .quantity-controls input {
+        width: 45px;
+        padding: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 5px;
+        border-radius: 6px;
+    }
+    
+    /* CATEGORÍAS Y CONTENIDO */
+    .pizza-category {
+        margin: 10px 5px;
+        padding: 15px 10px;
+        border-radius: 12px;
+    }
+    
+    .pizza-category h2 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        text-align: center;
+        padding-bottom: 8px;
+    }
+    
+    /* OPCIONES DE PEDIDO */
+    .order-options {
+        margin: 15px 5px;
+        padding: 15px 10px;
+    }
+    
+    .order-options h2 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+    }
+    
+    .order-options h3 {
+        font-size: 1.1em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .order-options label {
+        display: block;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    
+    .order-options input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+    
+    .whatsapp-button {
+        font-size: 16px;
+        padding: 15px;
+        margin: 20px 0;
+    }
+}
+
+/* Android compactos y iPhone SE (360px-375px) */
+@media (max-width: 375px) {
+    /* Optimización específica para pantallas pequeñas */
+    body {
+        font-size: 14px;
+    }
+    
+    .category-nav button {
+        margin: 2px 1px;
+        padding: 8px 8px;
+        font-size: 11px;
+        min-width: 60px;
+        max-width: 75px;
+    }
+    
+    .quantity-controls button {
+        padding: 8px 10px;
+        font-size: 14px;
+        min-width: 32px;
+        height: 36px; /* Touch target mínimo Android */
+    }
+    
+    .quantity-controls input {
+        width: 42px;
+        height: 36px;
+        font-size: 14px;
+        padding: 4px;
+    }
+    
+    .pizza-item .item-name {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+    
+    .pizza-item .item-price {
+        font-size: 1.1em;
+    }
+    
+    header h1 {
+        font-size: 1.6em;
+        line-height: 1.2;
+    }
+    
+    /* Ajustes específicos para Android pequeños */
+    .pizza-category {
+        margin: 8px 3px;
+        padding: 12px 8px;
+    }
+    
+    .order-options {
+        margin: 12px 3px;
+        padding: 12px 8px;
+    }
+}
+
+/* Android muy compactos - Samsung Galaxy A series, etc. (320px-360px) */
+@media (max-width: 360px) {
+    .category-nav {
+        margin: 8px 2px;
+    }
+    
+    .category-nav button {
+        margin: 2px 1px;
+        padding: 6px 6px;
+        font-size: 10px;
+        min-width: 55px;
+        max-width: 70px;
+    }
+    
+    .quantity-controls button {
+        padding: 6px 8px;
+        font-size: 12px;
+        min-width: 30px;
+    }
+    
+    .quantity-controls input {
+        width: 38px;
+        font-size: 13px;
+    }
+    
+    .pizza-item .item-name {
+        font-size: 12px;
+    }
+    
+    header h1 {
+        font-size: 1.4em;
+    }
+    
+    header p {
+        font-size: 0.9em;
+    }
+}
+
+/* Landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 15px 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    header p {
+        font-size: 0.9em;
+        margin: 5px 0 0 0;
+    }
+    
+    .category-nav {
+        margin: 8px 5px;
+    }
+    
+    .category-nav button {
+        padding: 8px 15px;
+        margin: 2px 4px;
+    }
+}
+
+/* ========== OPTIMIZACIONES ANDROID-ESPECÍFICAS ========== */
+
+/* Android Material Design - Touch targets mínimos */
+@media (max-width: 430px) {
+    /* Asegurar touch targets de mínimo 48dp (Material Design) */
+    button, input[type="button"], .quantity-controls button {
+        min-height: 44px; /* iOS: 44px, Android: 48dp ≈ 44px */
+        min-width: 44px;
+    }
+    
+    /* Android keyboard optimization */
+    input[type="text"], input[type="email"], input[type="tel"] {
+        font-size: 16px; /* Evita zoom en Android Chrome */
+        padding: 12px;
+        border-radius: 8px;
+        border: 2px solid #e1e8ed;
+        background-color: #ffffff;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    
+    /* Scrolling optimization para Android */
+    body {
+        -webkit-overflow-scrolling: touch; /* iOS */
+        scroll-behavior: smooth; /* Android Chrome */
+    }
+    
+    /* Android Chrome address bar handling */
+    .category-nav {
+        position: sticky;
+        top: 0;
+        background-color: rgba(245, 247, 250, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 100;
+        padding: 10px 5px;
+        border-bottom: 1px solid #e1e8ed;
+    }
+    
+    /* Samsung Browser optimization */
+    .pizza-item {
+        -webkit-tap-highlight-color: rgba(102, 126, 234, 0.2);
+        tap-highlight-color: rgba(102, 126, 234, 0.2);
+    }
+    
+    /* Android vibration feedback simulation */
+    .quantity-controls button:active {
+        transform: scale(0.95);
+        background: linear-gradient(135deg, #5a6fd8 0%, #6b4190 100%);
+    }
+}
+
+/* ========== OPTIMIZACIONES DE ACCESIBILIDAD UNIVERSAL ========== */
+
+/* Mejoras para usuarios con problemas visuales */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support (Android/iOS) */
+@media (prefers-color-scheme: dark) {
+    /* Opcional: agregar soporte para modo oscuro */
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: #ecf0f1;
+    }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+    .category-nav button {
+        border: 2px solid #000;
+    }
+    
+    .quantity-controls button {
+        border: 2px solid #000;
+    }
+}
+
+/* ========== UTILIDADES RESPONSIVE UNIVERSALES ========== */
+
+/* Pantallas muy anchas - tablets en landscape */
+@media (min-width: 768px) and (orientation: landscape) {
+    .pizza-category {
+        max-width: 900px;
+        margin: 20px auto;
+    }
+    
+    .pizza-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    
+    .quantity-controls {
+        margin-top: 0;
+    }
+    
+    .category-nav {
+        position: static;
+        background: transparent;
+    }
+}
