@@ -33,6 +33,7 @@ function changeQuantity(product, change) {
         let input = document.getElementById(product);
         if (input) {
             input.value = newValue;
+            adjustInputWidth(input); // Adjust width when using buttons
         }
     }
 }
@@ -41,10 +42,60 @@ function changeQuantity(product, change) {
 function restoreQuantities() {
     Object.keys(productQuantities).forEach(productId => {
         let input = document.getElementById(productId);
-        if (input && productQuantities[productId] > 0) {
+        if (input) {
             input.value = productQuantities[productId];
+            adjustInputWidth(input); // Adjust width according to value
         }
     });
+}
+
+// Function to adjust input width according to number of digits
+function adjustInputWidth(input) {
+    const value = input.value || '0';
+    const digits = value.length;
+    
+    // Calculate dynamic width: minimum 45px, +12px per extra digit
+    let width = Math.max(45, 30 + (digits * 12));
+    
+    // Maximum width to avoid looking too big
+    width = Math.min(width, 120);
+    
+    input.style.width = width + 'px';
+}
+
+// Function to handle direct changes in the input
+function handleDirectInput(productId, inputElement) {
+    let value = inputElement.value;
+    
+    // Clean: only positive numbers
+    value = value.replace(/[^\d]/g, '');
+    
+    // Convert to integer
+    let numValue = parseInt(value) || 0;
+    
+    // Reasonable maximum limit (avoid absurd numbers)
+    if (numValue > 9999) {
+        numValue = 9999;
+    }
+    
+    // Update global state
+    productQuantities[productId] = numValue;
+    
+    // Update value in input (in case there was cleaning)
+    inputElement.value = numValue;
+    
+    // Adjust input width
+    adjustInputWidth(inputElement);
+}
+
+// Function to handle blur event (when leaving the input)
+function handleInputBlur(productId, inputElement) {
+    // If empty, set to 0
+    if (inputElement.value === '' || inputElement.value === undefined) {
+        inputElement.value = '0';
+        productQuantities[productId] = 0;
+        adjustInputWidth(inputElement);
+    }
 }
 
 // Function to toggle fields according to the type of order

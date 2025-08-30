@@ -6,7 +6,7 @@
         <span class="item-price">$950</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('jarra_vidrio', 1)">+</button>
-            <input type="text" id="jarra_vidrio" value="0" readonly>
+            <input type="number" inputmode="numeric" id="jarra_vidrio" value="0" min="0" max="9999" oninput="handleDirectInput('jarra_vidrio', this)" onblur="handleInputBlur('jarra_vidrio', this)">
             <button onclick="changeQuantity('jarra_vidrio', -1)">-</button>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <span class="item-price">$250</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_vino_agua', 1)">+</button>
-            <input type="text" id="copa_vino_agua" value="0" readonly>
+            <input type="number" inputmode="numeric" id="copa_vino_agua" value="0" min="0" max="9999" oninput="handleDirectInput('copa_vino_agua', this)" onblur="handleInputBlur('copa_vino_agua', this)">
             <button onclick="changeQuantity('copa_vino_agua', -1)">-</button>
         </div>
     </div>
@@ -26,7 +26,7 @@
         <span class="item-price">$250</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_champagne', 1)">+</button>
-            <input type="text" id="copa_champagne" value="0" readonly>
+            <input type="number" inputmode="numeric" id="copa_champagne" value="0" min="0" max="9999" oninput="handleDirectInput('copa_champagne', this)" onblur="handleInputBlur('copa_champagne', this)">
             <button onclick="changeQuantity('copa_champagne', -1)">-</button>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <span class="item-price">$250</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('vaso_copa_sin_pie', 1)">+</button>
-            <input type="text" id="vaso_copa_sin_pie" value="0" readonly>
+            <input type="number" inputmode="numeric" id="vaso_copa_sin_pie" value="0" min="0" max="9999" oninput="handleDirectInput('vaso_copa_sin_pie', this)" onblur="handleInputBlur('vaso_copa_sin_pie', this)">
             <button onclick="changeQuantity('vaso_copa_sin_pie', -1)">-</button>
         </div>
     </div>
@@ -46,7 +46,7 @@
         <span class="item-price">$250</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_sidra', 1)">+</button>
-            <input type="text" id="copa_sidra" value="0" readonly>
+            <input type="number" inputmode="numeric" id="copa_sidra" value="0" min="0" max="9999" oninput="handleDirectInput('copa_sidra', this)" onblur="handleInputBlur('copa_sidra', this)">
             <button onclick="changeQuantity('copa_sidra', -1)">-</button>
         </div>
     </div>
@@ -56,7 +56,7 @@
         <span class="item-price">$300</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_helado', 1)">+</button>
-            <input type="text" id="copa_helado" value="0" readonly>
+            <input type="number" inputmode="numeric" id="copa_helado" value="0" min="0" max="9999" oninput="handleDirectInput('copa_helado', this)" onblur="handleInputBlur('copa_helado', this)">
             <button onclick="changeQuantity('copa_helado', -1)">-</button>
         </div>
     </div>
@@ -66,7 +66,7 @@
         <span class="item-price">$225</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('vaso_liso', 1)">+</button>
-            <input type="text" id="vaso_liso" value="0" readonly>
+            <input type="number" inputmode="numeric" id="vaso_liso" value="0" min="0" max="9999" oninput="handleDirectInput('vaso_liso', this)" onblur="handleInputBlur('vaso_liso', this)">
             <button onclick="changeQuantity('vaso_liso', -1)">-</button>
         </div>
     </div>
@@ -76,7 +76,7 @@
         <span class="item-price">$500</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_gin', 1)">+</button>
-            <input type="text" id="copa_gin" value="0" readonly>
+            <input type="number" inputmode="numeric" id="copa_gin" value="0" min="0" max="9999" oninput="handleDirectInput('copa_gin', this)" onblur="handleInputBlur('copa_gin', this)">
             <button onclick="changeQuantity('copa_gin', -1)">-</button>
         </div>
     </div>

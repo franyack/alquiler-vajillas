@@ -6,7 +6,7 @@
         <span class="item-price">$1000</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('fuente_servir', 1)">+</button>
-            <input type="text" id="fuente_servir" value="0" readonly>
+            <input type="number" inputmode="numeric" id="fuente_servir" value="0" min="0" max="9999" oninput="handleDirectInput('fuente_servir', this)" onblur="handleInputBlur('fuente_servir', this)">
             <button onclick="changeQuantity('fuente_servir', -1)">-</button>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <span class="item-price">$350</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('panera', 1)">+</button>
-            <input type="text" id="panera" value="0" readonly>
+            <input type="number" inputmode="numeric" id="panera" value="0" min="0" max="9999" oninput="handleDirectInput('panera', this)" onblur="handleInputBlur('panera', this)">
             <button onclick="changeQuantity('panera', -1)">-</button>
         </div>
     </div>
@@ -26,7 +26,7 @@
         <span class="item-price">$650</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('pocillo_cafe', 1)">+</button>
-            <input type="text" id="pocillo_cafe" value="0" readonly>
+            <input type="number" inputmode="numeric" id="pocillo_cafe" value="0" min="0" max="9999" oninput="handleDirectInput('pocillo_cafe', this)" onblur="handleInputBlur('pocillo_cafe', this)">
             <button onclick="changeQuantity('pocillo_cafe', -1)">-</button>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <span class="item-price">$750</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('hielera_pinza', 1)">+</button>
-            <input type="text" id="hielera_pinza" value="0" readonly>
+            <input type="number" inputmode="numeric" id="hielera_pinza" value="0" min="0" max="9999" oninput="handleDirectInput('hielera_pinza', this)" onblur="handleInputBlur('hielera_pinza', this)">
             <button onclick="changeQuantity('hielera_pinza', -1)">-</button>
         </div>
     </div>
@@ -46,7 +46,7 @@
         <span class="item-price">$750</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('ensaladera_porcelana', 1)">+</button>
-            <input type="text" id="ensaladera_porcelana" value="0" readonly>
+            <input type="number" inputmode="numeric" id="ensaladera_porcelana" value="0" min="0" max="9999" oninput="handleDirectInput('ensaladera_porcelana', this)" onblur="handleInputBlur('ensaladera_porcelana', this)">
             <button onclick="changeQuantity('ensaladera_porcelana', -1)">-</button>
         </div>
     </div>
@@ -56,7 +56,7 @@
         <span class="item-price">$750</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('ensaladera_acero', 1)">+</button>
-            <input type="text" id="ensaladera_acero" value="0" readonly>
+            <input type="number" inputmode="numeric" id="ensaladera_acero" value="0" min="0" max="9999" oninput="handleDirectInput('ensaladera_acero', this)" onblur="handleInputBlur('ensaladera_acero', this)">
             <button onclick="changeQuantity('ensaladera_acero', -1)">-</button>
         </div>
     </div>
@@ -66,7 +66,7 @@
         <span class="item-price">$1000</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('frapera', 1)">+</button>
-            <input type="text" id="frapera" value="0" readonly>
+            <input type="number" inputmode="numeric" id="frapera" value="0" min="0" max="9999" oninput="handleDirectInput('frapera', this)" onblur="handleInputBlur('frapera', this)">
             <button onclick="changeQuantity('frapera', -1)">-</button>
         </div>
     </div>
@@ -76,7 +76,7 @@
         <span class="item-price">$750</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('fuentina_grande', 1)">+</button>
-            <input type="text" id="fuentina_grande" value="0" readonly>
+            <input type="number" inputmode="numeric" id="fuentina_grande" value="0" min="0" max="9999" oninput="handleDirectInput('fuentina_grande', this)" onblur="handleInputBlur('fuentina_grande', this)">
             <button onclick="changeQuantity('fuentina_grande', -1)">-</button>
         </div>
     </div>
@@ -86,7 +86,7 @@
         <span class="item-price">$650</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('fuentina_mediana', 1)">+</button>
-            <input type="text" id="fuentina_mediana" value="0" readonly>
+            <input type="number" inputmode="numeric" id="fuentina_mediana" value="0" min="0" max="9999" oninput="handleDirectInput('fuentina_mediana', this)" onblur="handleInputBlur('fuentina_mediana', this)">
             <button onclick="changeQuantity('fuentina_mediana', -1)">-</button>
         </div>
     </div>
@@ -96,7 +96,7 @@
         <span class="item-price">$600</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('fuentina_chica', 1)">+</button>
-            <input type="text" id="fuentina_chica" value="0" readonly>
+            <input type="number" inputmode="numeric" id="fuentina_chica" value="0" min="0" max="9999" oninput="handleDirectInput('fuentina_chica', this)" onblur="handleInputBlur('fuentina_chica', this)">
             <button onclick="changeQuantity('fuentina_chica', -1)">-</button>
         </div>
     </div>
@@ -106,7 +106,7 @@
         <span class="item-price">$900</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('espada', 1)">+</button>
-            <input type="text" id="espada" value="0" readonly>
+            <input type="number" inputmode="numeric" id="espada" value="0" min="0" max="9999" oninput="handleDirectInput('espada', this)" onblur="handleInputBlur('espada', this)">
             <button onclick="changeQuantity('espada', -1)">-</button>
         </div>
     </div>
@@ -116,7 +116,7 @@
         <span class="item-price">$1200</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('bandeja_mozo', 1)">+</button>
-            <input type="text" id="bandeja_mozo" value="0" readonly>
+            <input type="number" inputmode="numeric" id="bandeja_mozo" value="0" min="0" max="9999" oninput="handleDirectInput('bandeja_mozo', this)" onblur="handleInputBlur('bandeja_mozo', this)">
             <button onclick="changeQuantity('bandeja_mozo', -1)">-</button>
         </div>
     </div>
@@ -126,7 +126,7 @@
         <span class="item-price">$550</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('cazuela', 1)">+</button>
-            <input type="text" id="cazuela" value="0" readonly>
+            <input type="number" inputmode="numeric" id="cazuela" value="0" min="0" max="9999" oninput="handleDirectInput('cazuela', this)" onblur="handleInputBlur('cazuela', this)">
             <button onclick="changeQuantity('cazuela', -1)">-</button>
         </div>
     </div>

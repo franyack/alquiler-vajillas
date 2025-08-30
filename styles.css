@@ -117,6 +117,8 @@ img {
 
 .quantity-controls input {
     width: 60px;
+    min-width: 45px;
+    max-width: 120px;
     text-align: center;
     border: 2px solid #e1e8ed;
     border-radius: 8px;
@@ -125,6 +127,36 @@ img {
     font-weight: 600;
     background-color: #f8fafc;
     color: #2c3e50;
+    transition: width 0.2s ease, border-color 0.2s ease;
+    
+    /* Mobile optimization */
+    -webkit-appearance: none;
+    appearance: none;
+    
+    /* Remove spinner arrows */
+    -moz-appearance: textfield;
+}
+
+/* Remove spinner arrows for WebKit */
+.quantity-controls input::-webkit-outer-spin-button,
+.quantity-controls input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Focus states */
+.quantity-controls input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+    background-color: #ffffff;
+}
+
+/* Active/editing state */
+.quantity-controls input:active,
+.quantity-controls input:focus-within {
+    border-color: #667eea;
+    background-color: #ffffff;
 }
 
 .order-options {
@@ -329,11 +361,26 @@ img {
     
     .quantity-controls input {
         width: 45px;
+        min-width: 40px;
+        max-width: 100px;
         padding: 6px;
-        font-size: 16px;
+        font-size: 16px; /* Prevents zoom on iOS */
         font-weight: bold;
         margin: 0 5px;
         border-radius: 6px;
+        transition: width 0.2s ease;
+        
+        /* Mobile keyboard optimization */
+        inputmode: numeric;
+        pattern: '[0-9]*';
+    }
+    
+    /* Mobile focus improvements */
+    .quantity-controls input:focus {
+        border-color: #667eea;
+        background-color: #ffffff;
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+        transform: scale(1.05);
     }
     
     /* CATEGORÍAS Y CONTENIDO */
@@ -413,9 +460,19 @@ img {
     
     .quantity-controls input {
         width: 42px;
+        min-width: 38px;
+        max-width: 90px;
         height: 36px;
-        font-size: 14px;
+        font-size: 16px; /* Prevents zoom on iOS */
         padding: 4px;
+        transition: width 0.2s ease;
+    }
+    
+    /* Enhanced mobile focus for smaller screens */
+    .quantity-controls input:focus {
+        transform: scale(1.1);
+        z-index: 10;
+        position: relative;
     }
     
     .pizza-item .item-name {
@@ -466,7 +523,10 @@ img {
     
     .quantity-controls input {
         width: 38px;
-        font-size: 13px;
+        min-width: 36px;
+        max-width: 85px;
+        font-size: 16px; /* Prevents zoom on iOS */
+        transition: width 0.2s ease;
     }
     
     .pizza-item .item-name {
