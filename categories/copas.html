@@ -3,7 +3,7 @@
     
     <div class="pizza-item">
         <span class="item-name">🍾 Jarra de vidrio</span>
-        <span class="item-price">$950</span>
+        <span class="item-price">$2500</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('jarra_vidrio', 1)">+</button>
             <input type="number" inputmode="numeric" id="jarra_vidrio" value="0" min="0" max="9999" oninput="handleDirectInput('jarra_vidrio', this)" onblur="handleInputBlur('jarra_vidrio', this)">
@@ -13,7 +13,7 @@
     
     <div class="pizza-item">
         <span class="item-name">🍷 Copa vino - agua</span>
-        <span class="item-price">$250</span>
+        <span class="item-price">$375</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_vino_agua', 1)">+</button>
             <input type="number" inputmode="numeric" id="copa_vino_agua" value="0" min="0" max="9999" oninput="handleDirectInput('copa_vino_agua', this)" onblur="handleInputBlur('copa_vino_agua', this)">
@@ -22,8 +22,18 @@
     </div>
     
     <div class="pizza-item">
+        <span class="item-name">🍷 Copa de vino Grande</span>
+        <span class="item-price">$550</span>
+        <div class="quantity-controls">
+            <button onclick="changeQuantity('copa_vino_grande', 1)">+</button>
+            <input type="number" inputmode="numeric" id="copa_vino_grande" value="0" min="0" max="9999" oninput="handleDirectInput('copa_vino_grande', this)" onblur="handleInputBlur('copa_vino_grande', this)">
+            <button onclick="changeQuantity('copa_vino_grande', -1)">-</button>
+        </div>
+    </div>
+    
+    <div class="pizza-item">
         <span class="item-name">🥂 Copa Champagne</span>
-        <span class="item-price">$250</span>
+        <span class="item-price">$375</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_champagne', 1)">+</button>
             <input type="number" inputmode="numeric" id="copa_champagne" value="0" min="0" max="9999" oninput="handleDirectInput('copa_champagne', this)" onblur="handleInputBlur('copa_champagne', this)">
@@ -33,7 +43,7 @@
     
     <div class="pizza-item">
         <span class="item-name">🥛 Vaso copa sin pie</span>
-        <span class="item-price">$250</span>
+        <span class="item-price">$375</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('vaso_copa_sin_pie', 1)">+</button>
             <input type="number" inputmode="numeric" id="vaso_copa_sin_pie" value="0" min="0" max="9999" oninput="handleDirectInput('vaso_copa_sin_pie', this)" onblur="handleInputBlur('vaso_copa_sin_pie', this)">
@@ -43,7 +53,7 @@
     
     <div class="pizza-item">
         <span class="item-name">🍺 Copa Sidra</span>
-        <span class="item-price">$250</span>
+        <span class="item-price">$375</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_sidra', 1)">+</button>
             <input type="number" inputmode="numeric" id="copa_sidra" value="0" min="0" max="9999" oninput="handleDirectInput('copa_sidra', this)" onblur="handleInputBlur('copa_sidra', this)">
@@ -53,7 +63,7 @@
     
     <div class="pizza-item">
         <span class="item-name">🍨 Copa helado</span>
-        <span class="item-price">$300</span>
+        <span class="item-price">$450</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_helado', 1)">+</button>
             <input type="number" inputmode="numeric" id="copa_helado" value="0" min="0" max="9999" oninput="handleDirectInput('copa_helado', this)" onblur="handleInputBlur('copa_helado', this)">
@@ -63,7 +73,7 @@
     
     <div class="pizza-item">
         <span class="item-name">🥛 Vaso liso</span>
-        <span class="item-price">$225</span>
+        <span class="item-price">$350</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('vaso_liso', 1)">+</button>
             <input type="number" inputmode="numeric" id="vaso_liso" value="0" min="0" max="9999" oninput="handleDirectInput('vaso_liso', this)" onblur="handleInputBlur('vaso_liso', this)">
@@ -73,11 +83,21 @@
     
     <div class="pizza-item">
         <span class="item-name">🍸 Copa GIN</span>
-        <span class="item-price">$500</span>
+        <span class="item-price">$700</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('copa_gin', 1)">+</button>
             <input type="number" inputmode="numeric" id="copa_gin" value="0" min="0" max="9999" oninput="handleDirectInput('copa_gin', this)" onblur="handleInputBlur('copa_gin', this)">
             <button onclick="changeQuantity('copa_gin', -1)">-</button>
+        </div>
+    </div>
+    
+    <div class="pizza-item">
+        <span class="item-name">🥃 Vaso Whisky</span>
+        <span class="item-price">$600</span>
+        <div class="quantity-controls">
+            <button onclick="changeQuantity('vaso_whisky', 1)">+</button>
+            <input type="number" inputmode="numeric" id="vaso_whisky" value="0" min="0" max="9999" oninput="handleDirectInput('vaso_whisky', this)" onblur="handleInputBlur('vaso_whisky', this)">
+            <button onclick="changeQuantity('vaso_whisky', -1)">-</button>
         </div>
     </div>
     
