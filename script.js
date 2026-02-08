@@ -3,11 +3,11 @@ let productQuantities = {};
 
 // Initialize quantities in 0 for all products
 function initializeQuantities() {
-    const allProducts = ['silla', 'mesa_redonda_1', 'mesa_redonda_2', 'mesa_imperial', 'tablon_caballetes', 'tacho',
+    const allProducts = ['silla', 'silla_bb', 'mesa_redonda_1', 'mesa_redonda_2', 'mesa_imperial', 'tablon_caballetes', 'tacho',
         'mantel_redondo_blanco', 'mantel_redondo_negro', 'mantel_rect_15x4', 'mantel_rect_22x4_blanco', 'mantel_rect_22x4_negro',
         'mantel_imperial_blanco', 'mantel_imperial_negro', 'funda_silla_blanca', 'funda_silla_negra', 'servilleta',
-        'plato_sitio', 'plato_verbano_25', 'plato_verbano_21', 'plato_verbano_19', 'plato_verbano_16', 'cubierto_x3', 'cubierto_x2', 'cuchara_grande',
-        'jarra_vidrio', 'copa_vino_agua', 'copa_champagne', 'vaso_copa_sin_pie', 'copa_sidra', 'copa_helado', 'vaso_liso', 'copa_gin',
+        'plato_sitio', 'plato_verbano_25', 'plato_verbano_21', 'plato_verbano_19', 'plato_verbano_16', 'cubierto_x3', 'cubierto_x2', 'tenedor_picada', 'cuchara_grande',
+        'jarra_vidrio', 'copa_vino_agua', 'copa_vino_grande', 'copa_champagne', 'vaso_copa_sin_pie', 'copa_sidra', 'copa_helado', 'vaso_liso', 'copa_gin', 'vaso_whisky',
         'fuente_servir', 'panera', 'pocillo_cafe', 'hielera_pinza', 'ensaladera_porcelana', 'ensaladera_acero', 'frapera',
         'fuentina_grande', 'fuentina_mediana', 'fuentina_chica', 'espada', 'bandeja_mozo', 'cazuela'];
     
@@ -112,64 +112,68 @@ function placeOrder() {
 
     let orderDetails = [];
     let total = 0;
-    let deliveryFee = document.querySelector('input[name="orderType"]:checked').value === 'envio' ? 1500 : 0;
+    let deliveryFee = document.querySelector('input[name="orderType"]:checked').value === 'envio' ? 15000 : 0;
 
-    // Products from the CSV catalog and their prices
+    // Products from the CSV catalog and their prices - ENERO 2026
     const products = {
         // MOBILIARIO
-        'silla': { name: 'Silla', price: 350 },
-        'mesa_redonda_1': { name: 'Mesa Redonda 1', price: 2700 },
-        'mesa_redonda_2': { name: 'Mesa Redonda 2', price: 2900 },
-        'mesa_imperial': { name: 'Mesa Imperial', price: 3500 },
-        'tablon_caballetes': { name: 'Tablón con caballetes', price: 3000 },
+        'silla': { name: 'Silla', price: 500 },
+        'silla_bb': { name: 'Silla BB', price: 1000 },
+        'mesa_redonda_1': { name: 'Mesa Redonda 1', price: 5000 },
+        'mesa_redonda_2': { name: 'Mesa Redonda 2', price: 5500 },
+        'mesa_imperial': { name: 'Mesa Imperial', price: 8000 },
+        'tablon_caballetes': { name: 'Tablón con caballetes', price: 5000 },
         
         // MANTELES Y TEXTILES
-        'mantel_redondo_blanco': { name: 'Mantel redondo Blanco', price: 3000 },
-        'mantel_redondo_negro': { name: 'Mantel redondo Negro', price: 3250 },
-        'mantel_rect_15x4': { name: 'Mantel Rect. 1,5x4', price: 3000 },
-        'mantel_rect_22x4_blanco': { name: 'Mantel Rect. 2,2x4 Blanco', price: 3500 },
-        'mantel_rect_22x4_negro': { name: 'Mantel Rect. 2,2x4 Negro', price: 3750 },
-        'mantel_imperial_blanco': { name: 'Mantel Rect. Imperial Blanco', price: 4000 },
-        'mantel_imperial_negro': { name: 'Mantel Rect. Imperial Negro', price: 4500 },
-        'funda_silla_blanca': { name: 'Funda silla blanca', price: 425 },
-        'funda_silla_negra': { name: 'Funda silla Negra', price: 475 },
-        'servilleta': { name: 'Servilleta', price: 180 },
+        'mantel_redondo_blanco': { name: 'Mantel redondo Blanco', price: 6500 },
+        'mantel_redondo_negro': { name: 'Mantel redondo Negro', price: 6500 },
+        'mantel_rect_15x4': { name: 'Mantel Rect. 1,5x4', price: 6000 },
+        'mantel_rect_22x4_blanco': { name: 'Mantel Rect. 2,2x4 Blanco', price: 7500 },
+        'mantel_rect_22x4_negro': { name: 'Mantel Rect. 2,2x4 Negro', price: 7500 },
+        'mantel_imperial_blanco': { name: 'Mantel Rect. Imperial Blanco', price: 9000 },
+        'mantel_imperial_negro': { name: 'Mantel Rect. Imperial Negro', price: 9000 },
+        'funda_silla_blanca': { name: 'Funda silla blanca', price: 850 },
+        'funda_silla_negra': { name: 'Funda silla Negra', price: 850 },
+        'servilleta': { name: 'Servilleta', price: 300 },
         
         // VAJILLA
-        'plato_sitio': { name: 'Plato de sitio', price: 850 },
-        'plato_verbano_25': { name: 'Plato Verbano 25cm', price: 250 },
-        'plato_verbano_21': { name: 'Plato Verbano 21cm', price: 230 },
-        'plato_verbano_19': { name: 'Plato Verbano 19cm', price: 220 },
-        'plato_verbano_16': { name: 'Plato Verbano 16cm', price: 210 },
-        'cubierto_x3': { name: 'Cubierto x3', price: 335 },
-        'cubierto_x2': { name: 'Cubierto x2', price: 270 },
-        'cuchara_grande': { name: 'Cuchara grande', price: 180 },
+        'plato_sitio': { name: 'Plato de sitio', price: 1500 },
+        'plato_verbano_25': { name: 'Plato Verbano 25cm', price: 375 },
+        'plato_verbano_21': { name: 'Plato Verbano 21cm', price: 360 },
+        'plato_verbano_19': { name: 'Plato Verbano 19cm', price: 330 },
+        'plato_verbano_16': { name: 'Plato Verbano 16cm', price: 325 },
+        'cubierto_x3': { name: 'Cubierto x3', price: 450 },
+        'cubierto_x2': { name: 'Cubierto x2', price: 400 },
+        'tenedor_picada': { name: 'Tenedor picada', price: 200 },
+        'cuchara_grande': { name: 'Cuchara grande', price: 300 },
         
         // COPAS Y CRISTALERÍA
-        'copa_vino_agua': { name: 'Copa vino - agua', price: 250 },
-        'copa_champagne': { name: 'Copa Champagne', price: 250 },
-        'vaso_copa_sin_pie': { name: 'Vaso copa sin pie', price: 250 },
-        'copa_sidra': { name: 'Copa Sidra', price: 250 },
-        'copa_helado': { name: 'Copa helado', price: 300 },
-        'vaso_liso': { name: 'Vaso liso', price: 225 },
-        'copa_gin': { name: 'Copa GIN', price: 500 },
+        'copa_vino_agua': { name: 'Copa vino - agua', price: 375 },
+        'copa_vino_grande': { name: 'Copa de vino Grande', price: 550 },
+        'copa_champagne': { name: 'Copa Champagne', price: 375 },
+        'vaso_copa_sin_pie': { name: 'Vaso copa sin pie', price: 375 },
+        'copa_sidra': { name: 'Copa Sidra', price: 375 },
+        'copa_helado': { name: 'Copa helado', price: 450 },
+        'vaso_liso': { name: 'Vaso liso', price: 350 },
+        'copa_gin': { name: 'Copa GIN', price: 700 },
+        'vaso_whisky': { name: 'Vaso Whisky', price: 600 },
         
         // ACCESORIOS Y SERVICIO
-        'panera': { name: 'Panera', price: 350 },
-        'jarra_vidrio': { name: 'Jarra de vidrio', price: 950 },
-        'pocillo_cafe': { name: 'Pocillo café c/ platito', price: 650 },
-        'tacho': { name: 'Tacho', price: 2000 },
-        'hielera_pinza': { name: 'Hielera con pinza', price: 750 },
-        'ensaladera_porcelana': { name: 'Ensaladera porcelana', price: 750 },
-        'ensaladera_acero': { name: 'Ensaladera acero', price: 750 },
-        'frapera': { name: 'Frapera', price: 1000 },
-        'fuente_servir': { name: 'Fuente de servir con pinza', price: 1000 },
-        'fuentina_grande': { name: 'Fuentina playa grande', price: 750 },
-        'fuentina_mediana': { name: 'Fuentina playa mediana', price: 650 },
-        'fuentina_chica': { name: 'Fuentina playa chica', price: 600 },
-        'espada': { name: 'Espada', price: 900 },
-        'bandeja_mozo': { name: 'Bandeja de mozo', price: 1200 },
-        'cazuela': { name: 'Cazuela', price: 550 }
+        'panera': { name: 'Panera', price: 600 },
+        'jarra_vidrio': { name: 'Jarra de vidrio', price: 2500 },
+        'pocillo_cafe': { name: 'Pocillo café c/ platito', price: 750 },
+        'tacho': { name: 'Tacho', price: 5000 },
+        'hielera_pinza': { name: 'Hielera con pinza', price: 1500 },
+        'ensaladera_porcelana': { name: 'Ensaladera porcelana', price: 1500 },
+        'ensaladera_acero': { name: 'Ensaladera acero', price: 1500 },
+        'frapera': { name: 'Frapera', price: 2500 },
+        'fuente_servir': { name: 'Fuente de servir con pinza', price: 3000 },
+        'fuentina_grande': { name: 'Fuentina playa grande', price: 1500 },
+        'fuentina_mediana': { name: 'Fuentina playa mediana', price: 1250 },
+        'fuentina_chica': { name: 'Fuentina playa chica', price: 1200 },
+        'espada': { name: 'Espada', price: 1500 },
+        'bandeja_mozo': { name: 'Bandeja de mozo', price: 2500 },
+        'cazuela': { name: 'Cazuela', price: 750 }
     };
 
     let totalItems = 0;
