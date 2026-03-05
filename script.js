@@ -1,7 +1,7 @@
 // Global variable to maintain the state of quantities
 let productQuantities = {};
 
-// Alias para transferencia (reemplazar cuando lo tengas definido)
+// Alias for transfer (replace when you have it defined)
 const ALIAS_TRANSFERENCIA = 'XXXXXXX';
 
 // Initialize quantities in 0 for all products
