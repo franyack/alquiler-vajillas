@@ -1,6 +1,9 @@
 // Global variable to maintain the state of quantities
 let productQuantities = {};
 
+// Alias para transferencia (reemplazar cuando lo tengas definido)
+const ALIAS_TRANSFERENCIA = 'XXXXXXX';
+
 // Initialize quantities in 0 for all products
 function initializeQuantities() {
     const allProducts = ['silla', 'silla_bb', 'mesa_redonda_1', 'mesa_redonda_2', 'mesa_imperial', 'tablon_caballetes', 'tacho',
@@ -101,8 +104,11 @@ function handleInputBlur(productId, inputElement) {
 // Function to toggle fields according to the type of order
 function toggleFields() {
     let orderType = document.querySelector('input[name="orderType"]:checked').value;
-    document.getElementById('address-field').style.display = orderType === 'envio' ? 'block' : 'none';
-    document.getElementById('name-field').style.display = orderType === 'retiro' ? 'block' : 'none';
+    let needsAddress = orderType === 'envio' || orderType === 'envio_fuera';
+    let needsLocalidad = orderType === 'envio_fuera';
+    document.getElementById('name-field').style.display = 'block';  // nombre siempre visible
+    document.getElementById('address-field').style.display = needsAddress ? 'block' : 'none';
+    document.getElementById('localidad-field').style.display = needsLocalidad ? 'block' : 'none';
 }
 
 // Function to place the order
@@ -112,7 +118,8 @@ function placeOrder() {
 
     let orderDetails = [];
     let total = 0;
-    let deliveryFee = document.querySelector('input[name="orderType"]:checked').value === 'envio' ? 15000 : 0;
+    let selectedOrderType = document.querySelector('input[name="orderType"]:checked').value;
+    let deliveryFee = selectedOrderType === 'envio' ? 15000 : 0;
 
     // Products from the CSV catalog and their prices - ENERO 2026
     const products = {
@@ -202,10 +209,31 @@ function placeOrder() {
         return;
     }
 
-    let contact = document.querySelector('input[name="orderType"]:checked').value === 'envio' ? document.getElementById('address').value : document.getElementById('name').value;
-    let orderType = document.querySelector('input[name="orderType"]:checked').value === 'envio' ? 'Envío a domicilio' : 'Retiro en local';
-    
-    let message = `🍽️ SOLICITUD DE ALQUILER DE VAJILLAS\n\n📦 PRODUCTOS:\n${orderDetails.join('\n')}\n\n💰 RESUMEN:\nSubtotal: $${total}\n${orderType}: $${deliveryFee}\nTOTAL: $${total + deliveryFee}\n\n📋 DETALLES:\nTipo: ${orderType}\nContacto: ${contact}\nMétodo de Pago: ${paymentMethod.value}\n\n¡Gracias por elegirnos! 😊`;
+    let nombre = document.getElementById('name').value;
+    let orderTypeLabel = selectedOrderType === 'envio' ? 'Envío en Esperanza' : selectedOrderType === 'envio_fuera' ? 'Envío fuera de Esperanza (precio a definir)' : 'Retiro en local';
+
+    let resumenLineas = `Subtotal: $${total}`;
+    if (selectedOrderType === 'envio') {
+        resumenLineas += `\nEnvío en Esperanza: $${deliveryFee}\nTOTAL: $${total + deliveryFee}`;
+    } else if (selectedOrderType === 'envio_fuera') {
+        resumenLineas += `\nEnvío: Se calcula en base a la distancia del flete.\nTOTAL (sin envío): $${total}`;
+    } else {
+        resumenLineas += `\nTOTAL: $${total}`;
+    }
+
+    let detallesLineas = `Nombre: ${nombre}\nTipo: ${orderTypeLabel}`;
+    if (selectedOrderType === 'envio' || selectedOrderType === 'envio_fuera') {
+        detallesLineas += `\nDirección: ${document.getElementById('address').value}`;
+    }
+    if (selectedOrderType === 'envio_fuera') {
+        detallesLineas += `\nLocalidad: ${document.getElementById('localidad').value}`;
+    }
+    detallesLineas += `\nMétodo de Pago: ${paymentMethod.value}`;
+    if (paymentMethod.value === 'transferencia') {
+        detallesLineas += `\n\nEl alias para realizar la transferencia es ${ALIAS_TRANSFERENCIA}`;
+    }
+
+    let message = `🍽️ SOLICITUD DE ALQUILER DE VAJILLAS\n\n📦 PRODUCTOS:\n${orderDetails.join('\n')}\n\n💰 RESUMEN:\n${resumenLineas}\n\n📋 DETALLES:\n${detallesLineas}\n\n¡Gracias por elegirnos! 😊`;
     let whatsappUrl = `https://api.whatsapp.com/send?phone=5493496578677&text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
