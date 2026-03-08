@@ -1,0 +1,38 @@
+# Release: crea un tag y release en GitHub cuando se hace push a main.
+# La versión es vYYYY.MM.DD (fecha del merge). El CI debe pasar antes (merge desde PR).
+
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    name: Create release
+    runs-on: ubuntu-latest
+    # Solo si el push no es por un tag (evitar loops)
+    if: "!startsWith(github.ref, 'refs/tags/')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get version (date + short SHA for uniqueness)
+        id: version
+        run: |
+          SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          VERSION="v$(date -u +%Y.%m.%d)-${SHORT_SHA}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      - name: Create tag and release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: Release ${{ steps.version.outputs.version }}
+          generate_release_notes: true
+          draft: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

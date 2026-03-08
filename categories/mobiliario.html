@@ -30,7 +30,7 @@
     </div>
     
     <div class="pizza-item">
-        <span class="item-name">🪑 Mesa Redonda 1</span>
+        <span class="item-name">🪑 Mesa 10 personas</span>
         <span class="item-price">$5000</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('mesa_redonda_1', 1)">+</button>
@@ -40,7 +40,7 @@
     </div>
     
     <div class="pizza-item">
-        <span class="item-name">🪑 Mesa Redonda 2</span>
+        <span class="item-name">🪑 Mesa 12 personas</span>
         <span class="item-price">$5500</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('mesa_redonda_2', 1)">+</button>
@@ -171,12 +171,22 @@
     </div>
     
     <div class="pizza-item">
-        <span class="item-name">🎋 Servilleta</span>
+        <span class="item-name">🎋 Servilletas negras</span>
         <span class="item-price">$300</span>
         <div class="quantity-controls">
             <button onclick="changeQuantity('servilleta', 1)">+</button>
             <input type="number" inputmode="numeric" id="servilleta" value="0" min="0" max="9999" oninput="handleDirectInput('servilleta', this)" onblur="handleInputBlur('servilleta', this)">
             <button onclick="changeQuantity('servilleta', -1)">-</button>
+        </div>
+    </div>
+    
+    <div class="pizza-item">
+        <span class="item-name">🎋 Servilletas blancas</span>
+        <span class="item-price">$300</span>
+        <div class="quantity-controls">
+            <button onclick="changeQuantity('servilleta_blanca', 1)">+</button>
+            <input type="number" inputmode="numeric" id="servilleta_blanca" value="0" min="0" max="9999" oninput="handleDirectInput('servilleta_blanca', this)" onblur="handleInputBlur('servilleta_blanca', this)">
+            <button onclick="changeQuantity('servilleta_blanca', -1)">-</button>
         </div>
     </div>
     

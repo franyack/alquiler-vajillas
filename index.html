@@ -34,13 +34,19 @@
         <input type="radio" name="orderType" value="retiro" onclick="toggleFields()"> Retiro
     </label>
     <label>
-        <input type="radio" name="orderType" value="envio" onclick="toggleFields()"> Envío (+$15000)
+        <input type="radio" name="orderType" value="envio" onclick="toggleFields()"> Envío en Esperanza (+$15000)
     </label>
+    <label>
+        <input type="radio" name="orderType" value="envio_fuera" onclick="toggleFields()"> Envios fuera de Esperanza (Precio a definir)
+    </label>
+    <div id="name-field">
+        <input type="text" id="name" placeholder="Ingrese su nombre">
+    </div>
     <div id="address-field" style="display:none;">
         <input type="text" id="address" placeholder="Ingrese su dirección">
     </div>
-    <div id="name-field" style="display:none;">
-        <input type="text" id="name" placeholder="Ingrese su nombre">
+    <div id="localidad-field" style="display:none;">
+        <input type="text" id="localidad" placeholder="Ingrese su localidad">
     </div>
     <div>
         <h3>Selecciona el método de pago:</h3>

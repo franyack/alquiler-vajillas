@@ -46,6 +46,13 @@ alquiler-vajillas/
 
 **Total: 44 products** | **Complete range: $180 - $4,500**
 
+## ✅ CI and releases
+
+- **CI** (`.github/workflows/ci.yml`): On every push and pull request to `main`, we check that required files exist, `manifest.json` is valid JSON, `script.js` has valid syntax, and `index.html` has the expected structure. **Recommendation:** In GitHub → Settings → Branches → Branch protection for `main`, enable “Require status checks to pass before merging” and select **Validate project** so PRs cannot be merged if CI fails.
+- **Release** (`.github/workflows/release.yml`): On every push to `main`, a new tag and GitHub Release are created with a version like `vYYYY.MM.DD-<short-sha>`.
+
+The `main` branch is protected: changes are merged only via Pull Request (direct push is not allowed).
+
 ## 🔧 Installation and Setup
 
 ### Prerequisites
