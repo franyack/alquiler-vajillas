@@ -1,14 +1,14 @@
 // Global variable to maintain the state of quantities
 let productQuantities = {};
 
-// Alias for transfer (replace when you have it defined)
-const ALIAS_TRANSFERENCIA = 'XXXXXXX';
+// Alias for transfer
+const ALIAS_TRANSFERENCIA = 'vajillasesperanza';
 
 // Initialize quantities in 0 for all products
 function initializeQuantities() {
     const allProducts = ['silla', 'silla_bb', 'mesa_redonda_1', 'mesa_redonda_2', 'mesa_imperial', 'tablon_caballetes', 'tacho',
         'mantel_redondo_blanco', 'mantel_redondo_negro', 'mantel_rect_15x4', 'mantel_rect_22x4_blanco', 'mantel_rect_22x4_negro',
-        'mantel_imperial_blanco', 'mantel_imperial_negro', 'funda_silla_blanca', 'funda_silla_negra', 'servilleta',
+        'mantel_imperial_blanco', 'mantel_imperial_negro', 'funda_silla_blanca', 'funda_silla_negra', 'servilleta', 'servilleta_blanca',
         'plato_sitio', 'plato_verbano_25', 'plato_verbano_21', 'plato_verbano_19', 'plato_verbano_16', 'cubierto_x3', 'cubierto_x2', 'tenedor_picada', 'cuchara_grande',
         'jarra_vidrio', 'copa_vino_agua', 'copa_vino_grande', 'copa_champagne', 'vaso_copa_sin_pie', 'copa_sidra', 'copa_helado', 'vaso_liso', 'copa_gin', 'vaso_whisky',
         'fuente_servir', 'panera', 'pocillo_cafe', 'hielera_pinza', 'ensaladera_porcelana', 'ensaladera_acero', 'frapera',
@@ -126,8 +126,8 @@ function placeOrder() {
         // MOBILIARIO
         'silla': { name: 'Silla', price: 500 },
         'silla_bb': { name: 'Silla BB', price: 1000 },
-        'mesa_redonda_1': { name: 'Mesa Redonda 1', price: 5000 },
-        'mesa_redonda_2': { name: 'Mesa Redonda 2', price: 5500 },
+        'mesa_redonda_1': { name: 'Mesa 10 personas', price: 5000 },
+        'mesa_redonda_2': { name: 'Mesa 12 personas', price: 5500 },
         'mesa_imperial': { name: 'Mesa Imperial', price: 8000 },
         'tablon_caballetes': { name: 'Tablón con caballetes', price: 5000 },
         
@@ -141,7 +141,8 @@ function placeOrder() {
         'mantel_imperial_negro': { name: 'Mantel Rect. Imperial Negro', price: 9000 },
         'funda_silla_blanca': { name: 'Funda silla blanca', price: 850 },
         'funda_silla_negra': { name: 'Funda silla Negra', price: 850 },
-        'servilleta': { name: 'Servilleta', price: 300 },
+        'servilleta': { name: 'Servilletas negras', price: 300 },
+        'servilleta_blanca': { name: 'Servilletas blancas', price: 300 },
         
         // VAJILLA
         'plato_sitio': { name: 'Plato de sitio', price: 1500 },
