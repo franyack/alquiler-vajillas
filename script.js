@@ -119,7 +119,7 @@ function placeOrder() {
     let orderDetails = [];
     let total = 0;
     let selectedOrderType = document.querySelector('input[name="orderType"]:checked').value;
-    let deliveryFee = selectedOrderType === 'envio' ? 15000 : 0;
+    let deliveryFee = selectedOrderType === 'envio' ? 20000 : 0;
 
     // Products from the CSV catalog and their prices - AGOSTO 2026
     const products = {
